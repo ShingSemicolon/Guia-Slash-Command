@@ -46,6 +46,7 @@ let array = []//creamos un array vacío
   client.application.commands.set(array)
 //y la segunda es en un servidor en concreto
   client.guilds.resolve("id-del-servidor").commands.set(array)
+//Ten en cuenta que una vez ya publicado los slash commands, no hace falta que los publiques otra vez, puedes ocultar las líneas con comentarios si no lo necesitas.
 
 //...
 
@@ -116,5 +117,4 @@ module.exports = {
 }
 ```
 
-
-
+Así que, ¡felicitaciones! Ya sabes crear slash commands de una manera muy sencilla y eficiente
