@@ -8,14 +8,17 @@ Esta guía esta creada para aquellos que ya tienen conocimientos previos sobre e
 # Controlador de slash commands
 
 El controlador de slash commands se creara en el archivo raíz de tu proyecto, siguendo esta estructura.
+```bash
+index.js
+comandos/
+  - ping.js
+```
 ```js
-
-let fs = require("fs")
-let array = []
-module.exports = async (client) => {
-
-
-  for (const file of fs.readdirSync("./comandos/")) {
+const Discord = require("discord.js") // requerimos el modulo discord.js, evidentemente se instala usando npm i discord.js
+const client = new Discord.Client({intents: 32767})// defines el cliente con los intents necesarios
+let fs = require("fs") //requerimos el modulo fs
+let array = []//creamos un array vacío
+  for (const file of fs.readdirSync("./comandos/")) {//creamos un bucle 
 
     const command = require(`../comandos/${file}`);
     client.slash.set(command.name, command);
@@ -31,5 +34,4 @@ module.exports = async (client) => {
   // client.application.commands.set(array)
   //  client.guilds.resolve("312846399731662850").commands.set(array)
 
-}
 ```
