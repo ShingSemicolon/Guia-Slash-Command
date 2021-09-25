@@ -90,27 +90,27 @@ Este sencillo comando se usa bastante para asegurar que todo funciona bien devol
 ```js
 
 module.exports = {
-  name: "ping",
+  name: "ping2",
   description: "Pong!",
   options: [
     {
       name: "texto",
       type: "STRING",
-        description: "Coloca un texto",
+      description: "Coloca un texto",
       required: false,
     },
   ],
- async execute(Discord, client, interaction) {
-//como ves en el objeto, exportamos el nombre del comando, y la descripción, que se usa en el controlador de slash commands para poder publicarlos, tambien se agregan las opciones, un equivalente a los argumentos que usan muchos bots, y puedes elegir el tipo, poner la descipcion... si es necesario... te recomiendo leer las docs de discord.js si quieres saber mas acerca de eso: https://discord.js.org/#/docs/main/stable/class/ApplicationCommand
+  async execute(Discord, client, interaction) {
+    //como ves en el objeto, exportamos el nombre del comando, y la descripción, que se usa en el controlador de slash commands para poder publicarlos, tambien se agregan las opciones, un equivalente a los argumentos que usan muchos bots, y puedes elegir el tipo, poner la descipcion... si es necesario... te recomiendo leer las docs de discord.js si quieres saber mas acerca de eso: https://discord.js.org/#/docs/main/stable/class/ApplicationCommand
 
-interaction.reply("Pong")//así se enviaria un mensaje con la interacción pero ahora vamos a usar la opcion del texto para que lo tengas mas claro de como funciona
+    interaction.reply("Pong")//así se enviaria un mensaje con la interacción pero ahora vamos a usar la opcion del texto para que lo tengas mas claro de como funciona
 
-if(interaction.options.getString("texto")){//asi se obtine el texto o lo que fuese dependiendo del tipo, con las interacciones
-interaction.reply(`Pong!\nTambien escribiste: \`${interaction.options.getString("texto")}\``) // enviamos el mensaje con el texto
-} else {//si no introdujo ningun texto (recordemos que la opcion no es obligatoria por el required: false)
-intraction.reply("Pong!")
-}
-}
+    if (interaction.options.getString("texto")) {//asi se obtine el texto o lo que fuese dependiendo del tipo, con las interacciones
+      interaction.reply(`Pong!\nTambien escribiste: \`${interaction.options.getString("texto")}\``) // enviamos el mensaje con el texto
+    } else {//si no introdujo ningun texto (recordemos que la opcion no es obligatoria por el required: false)
+      intraction.reply("Pong!")
+    }
+  }
 }
 ```
 
