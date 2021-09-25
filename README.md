@@ -54,7 +54,13 @@ Ahora crearemos el controlador de eventos, tamb√≠en lo haremos en el archivo ra√
 ```js
 //...
 
+  for (const file of fs.readdirSync("./eventos/")) {//creamos un bucle con la carpeta creada para los eventos
+        const event = require(`../eventos/${file}`)//requieres el archivo dentro de la carpeta
+        let eventName = file.split(".")[0]//obtenemos el nombre del evento sin el .js
+        client.on(eventName, event.bind(null, client)); //y ejecutamos el evento
+    }
 
+}
 client.login("token")//logeas el bot con su token
 ```
 
