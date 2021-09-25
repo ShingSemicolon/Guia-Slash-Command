@@ -110,7 +110,7 @@ module.exports = {
 
     interaction.reply("Pong")//así se enviará un mensaje con la interacción pero ahora vamos a usar la opción del texto para que lo tengas más claro de cómo funciona
 
-    if (interaction.options.getString("texto")) {//así se obtiene el texto o lo que fuese dependiendo del tipo, con las interacciones
+    if (interaction.options.getString("texto")) {//así se obtiene el texto o lo que fuese dependiendo del tipo con las interacciones
       interaction.reply(`Pong!\nTambién escribiste: \`${interaction.options.getString("texto")}\``) // enviamos el mensaje con el texto
     } else {//si no introdujo ningún texto (recordemos que la opción no es obligatoria por el required: false)
       intraction.reply("Pong!")
