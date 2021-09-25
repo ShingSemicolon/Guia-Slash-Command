@@ -3,6 +3,8 @@ Guía explicada sobre la creación de los slash command handler en discord.js
 
 Los slash commands son una forma de interactuar con Discord, son bastantes fáciles de crear y de usar, pero por si las dudas, cree esta pequeña guía de como hacerlos en handler (es decir, un controlador de slash commands), con un plus agregando el event handler (un controlador de eventos) y en la última versión de discord.js a la creación de esta guía ([13.1.0](https://www.npmjs.com/package/discord.js/v/13.1.0))
 
+Recuerden que para esa versión de discord.js, se requiere [el Node en una versión mayor a la 16](https://nodejs.org/en/download/current/)
+
 
 ### Antes de nada... sobre copiar y pegar...
 No me importa que copies y pegues todo lo escrito en este repositorio, siempre cuando sepas lo que estás haciendo, por favor, si no tiene ninguna idea respecto a esto, no lo copie y pegue, lo más probable es que se te genere un error debido a ello.
