@@ -5,15 +5,19 @@ Los slash commands son una forma de interactuar con Discord, son bastantes fáci
 
 Esta guía esta creada para aquellos que ya tienen conocimientos previos sobre el desarrollo de bots en discord.js, si tu no conoces dicho módulo, te recomiendo leer [la guía de discord.js](https://discordjs.guide/#before-you-begin)
 
-# Controlador de slash commands
 
-En un principio, este será el árbol que tendremos para crear el controlador de slash commands.
+##Árbol de los archivos
+Este será el árbol que tendremos para crear los controladores.
 ```bash
 index.js
 comandos/
   - ping.js
+eventos/
+  - interactionCreate.js
 ```
-El controlador de slash commands se creara en el archivo raíz de tu proyecto.
+## Controlador de slash commands
+
+El controlador de slash commands se creara en el archivo raíz de tu proyecto, recuerda crear la carpeta de "comandos" y un archivo .js dentro de esa carpeta.
 ```js
 const Discord = require("discord.js") // requerimos el modulo discord.js, evidentemente se instala usando npm i discord.js
 const client = new Discord.Client({intents: 32767})// defines el cliente con los intents necesarios
@@ -41,3 +45,7 @@ let array = []//creamos un array vacío
 
 client.login("token")//logeas el bot con su token
 ```
+##Controlador de eventos
+Ahora crearemos el controlador de eventos, tambíen lo haremos en el archivo raíz, recuerda que debes de crear la carpeta de "eventos" y crear el archivo interactionCreate.js
+
+
