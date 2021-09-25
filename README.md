@@ -5,9 +5,11 @@ Los slash commands son una forma de interactuar con Discord, son bastantes fáci
 
 
 ### Antes de nada... sobre copiar y pegar...
-No me importa que copies o peges todo lo escrito en este repostorio, siempre cuando sepas lo que estas haciendo, por favor, si no tiene ninguna idea respecto a esto, no lo copie y pege, lo más probable es que se te genere un error debido a ello.
+No me importa que copies y pegues todo lo escrito en este repositorio, siempre cuando sepas lo que estás haciendo, por favor, si no tiene ninguna idea respecto a esto, no lo copie y pegue, lo más probable es que se te genere un error debido a ello.
 
-Esta guía esta creada para aquellos que ya tienen conocimientos previos sobre el desarrollo de bots en discord.js, si tu no conoces dicho módulo, te recomiendo leer [la guía de discord.js](https://discordjs.guide/#before-you-begin)
+Esta guía está creada para aquellos que ya tienen conocimientos previos sobre el desarrollo de bots en discord.js, si tu no conoces dicho módulo, te recomiendo leer [la guía de discord.js](https://discordjs.guide/#before-you-begin)
+
+Si usted cree que esta guía contiene errores, hagamelo saber en Discord, Shing_XD_0602#5907
 
 
 ## Árbol de los archivos
@@ -21,11 +23,11 @@ eventos/
 ```
 ## Controlador de slash commands
 
-El controlador de slash commands se creara en el archivo raíz de tu proyecto, recuerda crear la carpeta de "comandos" y un archivo .js dentro de esa carpeta.
+El controlador de slash commands se creará en el archivo raíz de tu proyecto, recuerda crear la carpeta de "comandos" y un archivo .js dentro de esa carpeta.
 ```js
-const Discord = require("discord.js") // requerimos el modulo discord.js, evidentemente se instala usando npm i discord.js
+const Discord = require("discord.js") // requerimos el módulo discord.js, evidentemente se instala usando npm i discord.js
 const client = new Discord.Client({intents: 32767})// defines el cliente con los intents necesarios
-let fs = require("fs") //requerimos el modulo fs
+let fs = require("fs") //requerimos el módulo fs
 client.slash = new Discord.Collection()//Creamos una Colección
 let array = []//creamos un array vacío
   for (const file of fs.readdirSync("./comandos/")) {//creamos un bucle con la carpeta creada para los comandos
@@ -65,13 +67,13 @@ client.login("token")//logeas el bot con su token
 ```
 
 ## Creación del evento: interactionCreate
-interactionCreate es el evento que se encarga de detectar todas las interacciones, incluidos, los slash commands, así pues, nos es util para poder ejecutar los slash commands, recuerda que este código se hará en el archivo eventos/interactionCreate.js
+interactionCreate es el evento que se encarga de detectar todas las interacciones, incluidos, los slash commands, así pues, nos es útil para poder ejecutar los slash commands, recuerda que este código se hará en el archivo eventos/interactionCreate.js
 
 ```js
 module.exports = async (client, interaction) =>{
-  try {//creamos un try... catch por si ocurre algun error inesperado en este evento.
-  if(interaction.isCommand()){//de todas las interacciones, solo los slash commands podran realizar el codigo dentro de la condicion
-    const command = interaction.commandName.toLowerCase()//obtenemos el nombre del slash command ejecutado y lo ponemos en minusculas
+  try {//creamos un try... catch por si ocurre algún error inesperado en este evento.
+  if(interaction.isCommand()){//de todas las interacciones, solo los slash commands podrán realizar el código dentro de la condición
+    const command = interaction.commandName.toLowerCase()//obtenemos el nombre del slash command ejecutado y lo ponemos en minúsculas
   const cmd = client.slash.get(command)//obtenemos el comando de la colección
  
   cmd.execute(Discord, client, interaction)//y lo ejecutamos
@@ -85,7 +87,7 @@ console.log(err)//la consola devuelve el error
 ```
 
 ## Creación del comando: ping
-Este sencillo comando se usa bastante para asegurar que todo funciona bien devolviendo un mensaje, con este ejemplo, te haras una idea de como poner el nombre, las descripciones e incluso las opciones a los slash commands, recuerda que este codigo se hará en el archivo comandos/ping.js
+Este sencillo comando se usa bastante para asegurar que todo funciona bien devolviendo un mensaje, con este ejemplo, te harás una idea de como poner el nombre, las descripciones e incluso las opciones a los slash commands, recuerda que este código se hará en el archivo comandos/ping.js
 
 ```js
 
@@ -101,17 +103,18 @@ module.exports = {
     },
   ],
   async execute(Discord, client, interaction) {
-    //como ves en el objeto, exportamos el nombre del comando, y la descripción, que se usa en el controlador de slash commands para poder publicarlos, tambien se agregan las opciones, un equivalente a los argumentos que usan muchos bots, y puedes elegir el tipo, poner la descipcion... si es necesario... te recomiendo leer las docs de discord.js si quieres saber mas acerca de eso: https://discord.js.org/#/docs/main/stable/class/ApplicationCommand
+    //como ves en el objeto, exportamos el nombre del comando, y la descripción, que se usa en el controlador de slash commands para poder publicarlos, también se agregan las opciones, un equivalente a los argumentos que usan muchos bots, y puedes elegir el tipo, poner la descripcion... si es necesario... te recomiendo leer las docs de discord.js si quieres saber mas acerca de eso: https://discord.js.org/#/docs/main/stable/class/ApplicationCommand
 
-    interaction.reply("Pong")//así se enviaria un mensaje con la interacción pero ahora vamos a usar la opcion del texto para que lo tengas mas claro de como funciona
+    interaction.reply("Pong")//así se enviará un mensaje con la interacción pero ahora vamos a usar la opción del texto para que lo tengas más claro de cómo funciona
 
-    if (interaction.options.getString("texto")) {//asi se obtine el texto o lo que fuese dependiendo del tipo, con las interacciones
-      interaction.reply(`Pong!\nTambien escribiste: \`${interaction.options.getString("texto")}\``) // enviamos el mensaje con el texto
-    } else {//si no introdujo ningun texto (recordemos que la opcion no es obligatoria por el required: false)
+    if (interaction.options.getString("texto")) {//así se obtiene el texto o lo que fuese dependiendo del tipo, con las interacciones
+      interaction.reply(`Pong!\nTambién escribiste: \`${interaction.options.getString("texto")}\``) // enviamos el mensaje con el texto
+    } else {//si no introdujo ningún texto (recordemos que la opción no es obligatoria por el required: false)
       intraction.reply("Pong!")
     }
   }
 }
 ```
+
 
 
