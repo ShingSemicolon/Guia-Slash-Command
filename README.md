@@ -7,7 +7,7 @@ Esta guía esta creada para aquellos que ya tienen conocimientos previos sobre e
 
 # Controlador de slash commands
 
-En un principio, este sera el arbol que tendremos para crear el controlador de slash commands.
+En un principio, este será el árbol que tendremos para crear el controlador de slash commands.
 ```bash
 index.js
 comandos/
@@ -37,4 +37,7 @@ let array = []//creamos un array vacío
 //y la segunda es en un servidor en concreto
   client.guilds.resolve("id-del-servidor").commands.set(array)
 
+//...
+
+client.login("token")//logeas el bot con su token
 ```
