@@ -117,4 +117,4 @@ module.exports = {
 }
 ```
 
-Así que, ¡felicitaciones! Ya sabes crear slash commands de una manera muy sencilla y eficiente
+Así que, ¡felicitaciones! Ya sabes crear slash commands de una manera muy sencilla y eficiente, si desea saber más acerca de eso tendrás que leer [las docs de de discord.js](https://discord.js.org/#/docs/main/stable/general/welcome)
