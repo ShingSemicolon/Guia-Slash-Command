@@ -6,7 +6,7 @@ Los slash commands son una forma de interactuar con Discord, son bastantes fáci
 Esta guía esta creada para aquellos que ya tienen conocimientos previos sobre el desarrollo de bots en discord.js, si tu no conoces dicho módulo, te recomiendo leer [la guía de discord.js](https://discordjs.guide/#before-you-begin)
 
 
-##Árbol de los archivos
+## Árbol de los archivos
 Este será el árbol que tendremos para crear los controladores.
 ```bash
 index.js
@@ -45,7 +45,7 @@ let array = []//creamos un array vacío
 
 client.login("token")//logeas el bot con su token
 ```
-##Controlador de eventos
+## Controlador de eventos
 Ahora crearemos el controlador de eventos, tambíen lo haremos en el archivo raíz, recuerda que debes de crear la carpeta de "eventos" y crear el archivo interactionCreate.js
 
 
