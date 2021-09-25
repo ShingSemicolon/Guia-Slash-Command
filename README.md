@@ -84,7 +84,7 @@ console.log(err)//la consola devuelve el error
 }
 ```
 
-##Creación del comando: ping
+## Creación del comando: ping
 Este sencillo comando se usa bastante para asegurar que todo funciona bien devolviendo un mensaje, con este ejemplo, te haras una idea de como poner el nombre, las descripciones e incluso las opciones a los slash commands, recuerda que este codigo se hará en el archivo comandos/ping.js
 
 ```js
