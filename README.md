@@ -64,7 +64,7 @@ Ahora crearemos el controlador de eventos, tambíen lo haremos en el archivo ra�
 client.login("token")//logeas el bot con su token
 ```
 
-##Creación del evento: interactionCreate
+## Creación del evento: interactionCreate
 interactionCreate es el evento que se encarga de detectar todas las interacciones, incluidos, los slash commands, así pues, nos es util para poder ejecutar los slash commands, recuerda que este código se hará en el archivo eventos/interactionCreate.js
 
 ```js
