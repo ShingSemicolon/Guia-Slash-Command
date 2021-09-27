@@ -106,7 +106,7 @@ module.exports = {
     },
   ],
   async execute(Discord, client, interaction) {
-    //como ves en el objeto, exportamos el nombre del comando, y la descripción, que se usa en el controlador de slash commands para poder publicarlos, también se agregan las opciones, un equivalente a los argumentos que usan muchos bots, y puedes elegir el tipo, poner la descripcion... si es necesario... te recomiendo leer las docs de discord.js si quieres saber mas acerca de eso: https://discord.js.org/#/docs/main/stable/class/ApplicationCommand
+    //como ves en el objeto, exportamos el nombre del comando y la descripción, que se usa en el controlador de slash commands para poder publicarlos, también se agregan las opciones, un equivalente a los argumentos que usan muchos bots, y puedes elegir el tipo, poner la descripcion... si es necesario... te recomiendo leer las docs de discord.js si quieres saber mas acerca de eso: https://discord.js.org/#/docs/main/stable/class/ApplicationCommand
 
     interaction.reply("Pong")//así se enviará un mensaje con la interacción pero ahora vamos a usar la opción del texto para que lo tengas más claro de cómo funciona
 
