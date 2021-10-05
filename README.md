@@ -91,9 +91,9 @@ ready es el evento que se encarga de detectar si el bot se encuentra activo, nos
 module.exports = async (client) =>{
   try {//creamos un try... catch por si ocurre algún error inesperado en este evento.
 //Para publicar los slash commands hay 2 maneras, la primera forma es globalmente
-  client.application.commands.set(array)
+  client.application.commands.set(client.array)
 //y la segunda es en un servidor en concreto
-  client.guilds.resolve("id-del-servidor").commands.set(array)
+  client.guilds.resolve("id-del-servidor").commands.set(client.array)
 //Ten en cuenta que una vez ya publicado los slash commands, no hace falta que los publiques otra vez, puedes ocultar las líneas con comentarios si no lo necesitas.
 
 //Recuerda que para publicar los comandos deberás de reiniciar el bot, y no es obligatorio que se publique precisamente en ese evento, así que puedes ponerlo en cualquier parte siempre que se puedan ejecutar esas lineas
