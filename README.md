@@ -22,6 +22,7 @@ comandos/
   - ping.js
 eventos/
   - interactionCreate.js
+  - ready.js
 ```
 ## Controlador de slash commands
 
@@ -31,7 +32,7 @@ const Discord = require("discord.js") // requerimos el módulo discord.js, evide
 const client = new Discord.Client({intents: 32767})// defines el cliente con los intents necesarios
 let fs = require("fs") //requerimos el módulo fs
 client.slash = new Discord.Collection()//Creamos una Colección
-let array = []//creamos un array vacío
+client.array = []//creamos un array vacío
   for (const file of fs.readdirSync("./comandos/")) {//creamos un bucle con la carpeta creada para los comandos
 
     const command = require(`./comandos/${file}`)//requieres el archivo dentro de la carpeta
@@ -42,14 +43,9 @@ let array = []//creamos un array vacío
       options: command.options ? command.options : [],
       type: command.type ? command.type : 1
     }
-    array.push(data)//los datos se agregan al array
+    client.array.push(data)//los datos se agregan al array
+//los slash commands se publicarán en el evento ready.js 
   }
-//Y para establecerlo hay 2 maneras, la primer es globalmente
-  client.application.commands.set(array)
-//y la segunda es en un servidor en concreto
-  client.guilds.resolve("id-del-servidor").commands.set(array)
-//Ten en cuenta que una vez ya publicado los slash commands, no hace falta que los publiques otra vez, puedes ocultar las líneas con comentarios si no lo necesitas.
-
 //...
 
 client.login("token")//logeas el bot con su token
@@ -80,6 +76,27 @@ module.exports = async (client, interaction) =>{
   const cmd = client.slash.get(command)//obtenemos el comando de la colección
  
   cmd.execute(Discord, client, interaction)//y lo ejecutamos
+  }
+  }catch(err){
+   
+console.log(err)//la consola devuelve el error
+  }
+  
+}
+```
+## Creación del evento: ready
+ready es el evento que se encarga de detectar si el bot se encuentra activo, nos es útil para poder publicar los slash commands, recuerda que este código se hará en el archivo eventos/ready.js
+
+```js
+module.exports = async (client) =>{
+  try {//creamos un try... catch por si ocurre algún error inesperado en este evento.
+//Para publicar los slash commands hay 2 maneras, la primera forma es globalmente
+  client.application.commands.set(array)
+//y la segunda es en un servidor en concreto
+  client.guilds.resolve("id-del-servidor").commands.set(array)
+//Ten en cuenta que una vez ya publicado los slash commands, no hace falta que los publiques otra vez, puedes ocultar las líneas con comentarios si no lo necesitas.
+
+//Recuerda que para publicar los comandos deberás de reiniciar el bot, y no es obligatorio que se publique precisamente en ese evento, así que puedes ponerlo en cualquier parte siempre que se puedan ejecutar esas lineas
   }
   }catch(err){
    
