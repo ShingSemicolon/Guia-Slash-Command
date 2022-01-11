@@ -11,7 +11,7 @@ No me importa que copies y pegues todo lo escrito en este repositorio, siempre c
 
 Esta guía está creada para aquellos que ya tienen conocimientos previos sobre el desarrollo de bots en discord.js, si tu no conoces dicho módulo, te recomiendo leer [la guía de discord.js](https://discordjs.guide/#before-you-begin)
 
-Si usted cree que esta guía contiene errores, hagamelo saber en Discord, Shing_XD_0602#5907
+Si usted cree que esta guía contiene errores, hagamelo saber en Discord, Shing_XD_0602#4873
 
 
 ## Árbol de los archivos
